@@ -19,10 +19,11 @@ V1 ngắn gọn nên ít phát sinh diễn giải ngoài context, phù hợp v�
 ## URL LangSmith
 
 - Project: https://smith.langchain.com/o/c0ce9528-832a-4c55-8553-b2abf6bff219/projects/p/3b582186-c006-497c-bd9e-5aedd8826d98
+- Public trace (không cần đăng nhập): https://smith.langchain.com/public/586a9099-c4f0-4533-a7c6-666d0dc65a17/r/01a03339-7e32-7881-9a98-55380762e3f9?start_time=2026-08-24T10%3A03%3A21.010911Z
 - Prompt V1: https://smith.langchain.com/prompts/truong-minh-hoang-day22-rag-v1/6a8857f5
 - Prompt V2: https://smith.langchain.com/prompts/truong-minh-hoang-day22-rag-v2/b1ba609a
 
-Các URL trên đã được kiểm tra trong tài khoản/organization đang đăng nhập. Project và hai prompt hiện ở chế độ private, vì vậy tiêu chí bonus “publicly accessible” chưa được tính là đã đạt.
+LangSmith hiện không cung cấp tùy chọn public cho toàn bộ tracing project. Vì vậy bài nộp giữ URL project để chứng minh tổng số traces và bổ sung một root trace đã được share công khai. Public trace đã được kiểm tra HTTP 200 mà không gửi thông tin đăng nhập; người chấm có thể xem question, retrieved context và answer qua URL này. Hai prompt trên Prompt Hub vẫn ở chế độ private.
 
 ## Danh sách tệp
 
