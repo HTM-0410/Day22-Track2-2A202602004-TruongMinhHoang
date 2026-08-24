@@ -1,15 +1,15 @@
 {
   "prompt_v1_scores": {
-    "faithfulness": 0.9800952380952381,
-    "answer_relevancy": 0.9139068197622674,
+    "faithfulness": 0.9611904761904762,
+    "answer_relevancy": 0.9127781856464368,
     "context_recall": 1.0,
-    "context_precision": 0.9449999999232501
+    "context_precision": 0.9383333332605833
   },
   "prompt_v2_scores": {
-    "faithfulness": 0.942602453102453,
-    "answer_relevancy": 0.8977067441970223,
+    "faithfulness": 0.9504206349206348,
+    "answer_relevancy": 0.9055835092606378,
     "context_recall": 1.0,
-    "context_precision": 0.9483333332577502
+    "context_precision": 0.94166666659475
   },
   "target_met": true
 }

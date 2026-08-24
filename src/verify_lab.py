@@ -53,13 +53,26 @@ def main() -> None:
         if "[prompt-v1]" not in text or "[prompt-v2]" not in text:
             failures.append("A/B log chưa có đủ cả V1 và V2")
 
+    run_all_log = EVIDENCE / "05_run_all_log.txt"
+    if not run_all_log.exists() or run_all_log.stat().st_size == 0:
+        failures.append("Thiếu evidence/05_run_all_log.txt")
+    else:
+        run_all_text = run_all_log.read_text(encoding="utf-8")
+        for step in range(1, 5):
+            marker = f"✅ PASS  Bước {step}:"
+            if marker not in run_all_text:
+                failures.append(f"Run-all log thiếu trạng thái PASS của Bước {step}")
+
     if failures:
         print("❌ VERIFY FAIL")
         for failure in failures:
             print(f"  - {failure}")
         raise SystemExit(1)
 
-    print("✅ VERIFY PASS: đủ 7 evidence, report hợp lệ, routing đủ 50 dòng")
+    print(
+        "✅ VERIFY PASS: đủ 7 evidence bắt buộc, run_all 4/4 PASS, "
+        "report hợp lệ, routing đủ 50 dòng"
+    )
 
 
 if __name__ == "__main__":
