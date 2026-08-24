@@ -1,14 +1,14 @@
 # ── LangChain core ────────────────────────────────────────────────
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-community>=0.3.0
-langchain-text-splitters>=0.3.0
+langchain>=0.3.0,<0.4.0
+langchain-core>=0.3.0,<0.4.0
+langchain-community>=0.3.0,<0.4.0
+langchain-text-splitters>=0.3.0,<0.4.0
 
 # ── LLM Providers (cài tất cả để hỗ trợ đa provider) ─────────────
-langchain-openai>=0.3.0          # OpenAI + OpenRouter
-langchain-anthropic>=0.1.0       # Anthropic Claude
-langchain-google-genai>=1.0.0    # Google Gemini
-langchain-ollama>=0.1.0          # Ollama (local)
+langchain-openai>=0.3.0,<0.4.0          # OpenAI + OpenRouter
+langchain-anthropic>=0.3.0,<0.4.0       # Anthropic Claude
+langchain-google-genai>=2.0.0,<3.0.0    # Google Gemini
+langchain-ollama>=0.3.0,<0.4.0          # Ollama (local)
 
 # ── LangSmith ─────────────────────────────────────────────────────
 langsmith>=0.2.0
@@ -18,13 +18,17 @@ faiss-cpu>=1.7.0
 
 # ── RAG Evaluation ────────────────────────────────────────────────
 ragas>=0.4.0
+instructor==1.7.2            # tương thích OpenAI SDK 1.x mà RAGAS sử dụng
 datasets>=2.0.0                  # required by RAGAS internally
 numpy>=1.25.0
+pillow>=10.4.0                  # tạo ảnh bảng điểm evidence từ report thật
 
 # ── Guardrails AI ─────────────────────────────────────────────────
-guardrails-ai>=0.5.0
+guardrails-ai==0.6.6           # tương thích LangChain 0.3.x và API validator của lab
+litellm==1.59.10              # chặn resolver kéo bản yêu cầu LangChain/OpenAI mới
+setuptools<81                 # guardrails 0.6 dùng pkg_resources
 
 # ── Utilities ─────────────────────────────────────────────────────
 python-dotenv>=1.0.0
-openai>=1.0.0                    # OpenAI SDK (used by langchain-openai)
+openai>=1.0.0,<2.0.0             # tương thích LangChain 0.3.x + Guardrails 0.6
 tiktoken>=0.5.0                  # token counting

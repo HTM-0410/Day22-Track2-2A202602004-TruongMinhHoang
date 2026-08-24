@@ -12,20 +12,24 @@ pip install -r requirements.txt
 ## requirements.txt
 
 ```
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-openai>=0.3.0
-langchain-community>=0.3.0
-langchain-text-splitters>=0.3.0
+langchain>=0.3.0,<0.4.0
+langchain-core>=0.3.0,<0.4.0
+langchain-openai>=0.3.0,<0.4.0
+langchain-community>=0.3.0,<0.4.0
+langchain-text-splitters>=0.3.0,<0.4.0
 langsmith>=0.2.0
-openai>=1.0.0
+openai>=1.0.0,<2.0.0
 faiss-cpu>=1.7.0
 ragas>=0.4.0
-guardrails-ai>=0.5.0
+instructor==1.7.2
+guardrails-ai==0.6.6
+litellm==1.59.10
+setuptools<81
 python-dotenv>=1.0.0
 tiktoken>=0.5.0
 datasets>=2.0.0
 numpy>=1.25.0
+pillow>=10.4.0
 ```
 
 ## Package Purposes
