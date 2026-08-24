@@ -37,6 +37,11 @@ class LabTests(unittest.TestCase):
             ]
             self.assertEqual(ellipses, [], f"Còn Ellipsis trong {path.name}")
 
+    def test_no_todo_markers_remain(self):
+        for path in SRC.glob("*.py"):
+            source = path.read_text(encoding="utf-8")
+            self.assertNotIn("# TODO", source, f"Còn TODO marker trong {path.name}")
+
     def test_ab_routing_is_deterministic_and_uses_both_versions(self):
         ids = [f"req-{index:04d}" for index in range(50)]
         first = [self.step2.get_prompt_version(request_id) for request_id in ids]

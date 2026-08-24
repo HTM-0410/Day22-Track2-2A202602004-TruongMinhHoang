@@ -48,23 +48,23 @@ def setup_vectorstore():
         chunks      = split_text(text, chunk_size=500, chunk_overlap=50)
         vectorstore = build_vectorstore(chunks, embeddings)
     """
-    # TODO: Khởi tạo embeddings từ factory (1 dòng)
+    # Khởi tạo embeddings từ factory (1 dòng)
     embeddings = get_embeddings()
 
-    # TODO: Đọc nội dung knowledge base (1 dòng)
+    # Đọc nội dung knowledge base (1 dòng)
     text = load_knowledge_base()
 
-    # TODO: Chia text thành chunks với chunk_size=500, chunk_overlap=50 (1 dòng)
+    # Chia text thành chunks với chunk_size=500, chunk_overlap=50 (1 dòng)
     chunks = split_text(text, chunk_size=500, chunk_overlap=50)
     print(f"📚 Đã chia thành {len(chunks)} chunks")
 
-    # TODO: Tạo FAISS vectorstore và trả về (1 dòng)
+    # Tạo FAISS vectorstore và trả về (1 dòng)
     vectorstore = build_vectorstore(chunks, embeddings)
     return vectorstore
 
 
 # ── 2. RAG Prompt Template ─────────────────────────────────────────────────
-# TODO: Tạo ChatPromptTemplate với 2 messages:
+# Tạo ChatPromptTemplate với 2 messages:
 #   ("system", "Bạn là trợ lý AI hữu ích. Chỉ dùng context sau để trả lời.\n\nContext:\n{context}")
 #   ("human",  "{question}")
 #
@@ -93,16 +93,16 @@ def build_rag_chain(vectorstore):
     """
     llm = get_llm()
 
-    # TODO: Tạo retriever từ vectorstore, lấy k=3 tài liệu gần nhất
+    # Tạo retriever từ vectorstore, lấy k=3 tài liệu gần nhất
     # Gợi ý: retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
-    # TODO: Định nghĩa hàm format_docs để ghép page_content của các docs thành 1 chuỗi
+    # Định nghĩa hàm format_docs để ghép page_content của các docs thành 1 chuỗi
     # Gợi ý: "\n\n".join(doc.page_content for doc in docs)
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
 
-    # TODO: Xây dựng LCEL chain dùng pipe operator (|)
+    # Xây dựng LCEL chain dùng pipe operator (|)
     # Gợi ý:
     #   chain = (
     #       {"context": retriever | format_docs, "question": RunnablePassthrough()}
@@ -125,7 +125,7 @@ def ask(chain, question: str) -> str:
     Chạy RAG chain với một câu hỏi.
     Decorator @traceable sẽ gửi mỗi lần gọi lên LangSmith như một trace riêng.
     """
-    # TODO: Gọi chain.invoke(question) và trả về kết quả
+    # Gọi chain.invoke(question) và trả về kết quả
     return chain.invoke(question)
 
 
@@ -138,13 +138,13 @@ def main():
     if not config.validate():
         sys.exit(1)
 
-    # TODO: Gọi setup_vectorstore() để tạo vectorstore
+    # Gọi setup_vectorstore() để tạo vectorstore
     vectorstore = setup_vectorstore()
 
-    # TODO: Gọi build_rag_chain(vectorstore) để nhận chain và retriever
+    # Gọi build_rag_chain(vectorstore) để nhận chain và retriever
     chain, retriever = build_rag_chain(vectorstore)
 
-    # TODO: Lặp qua tất cả SAMPLE_QUESTIONS, gọi ask(), in câu hỏi và câu trả lời
+    # Lặp qua tất cả SAMPLE_QUESTIONS, gọi ask(), in câu hỏi và câu trả lời
     for i, question in enumerate(SAMPLE_QUESTIONS, 1):
         for attempt in range(1, 4):
             try:
